@@ -1,0 +1,9 @@
+[core]
+    editor = vim
+
+[github]
+    user = josediego
+
+[user]
+        name = Jose Diaz
+        email = cardenas.josediego@gmail.com

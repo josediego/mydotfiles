@@ -16,10 +16,22 @@ if [ ! -d ${OH_MY_ZSH_DIR} ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# Installing common tools
+# Validate iterm2 is present
 if ! brew list | grep 'iterm2' &> /dev/null ; then
     echo "Installing iterm2..."
     /usr/local/bin/brew install iterm2
+fi
+
+if ! brew list | grep 'font-jetbrains-mono' &> /dev/null ; then
+    echo "Installing Jetbrain's Mono Font..."
+    /usr/local/bin/brew tap homebrew/cask-fonts
+    /usr/local/bin/brew install --cask font-jetbrains-mono
+fi
+
+# Validate starship is present
+if [ ! $(which starship) ]; then
+    echo "Installing starship..."
+    /usr/local/bin/brew install starship
 fi
 
 if ! brew list | grep 'keepassxc' &> /dev/null ; then

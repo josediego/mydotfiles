@@ -1,0 +1,47 @@
+# ~/.config/starship.toml
+
+[character]
+error_symbol = "[✖](bold red) "
+
+[directory]
+truncation_length = 5
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+progress_divider = " of "
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+show_percentage = true
+show_swap = true
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
+[package]
+disabled = true
+
+[time]
+time_format = "%T"
+format = "🕙 $time($style) "
+# style = "bright-white"
+disabled = false
+
+[username]
+style_user = "bold dimmed blue"
+show_always = false

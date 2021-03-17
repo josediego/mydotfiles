@@ -39,6 +39,24 @@ if ! brew list | grep 'keepassxc' &> /dev/null ; then
     /usr/local/bin/brew install keepassxc
 fi
 
+# Validate nvm is present
+if [ ! $(command -v nvm) ]; then
+    echo "Installing nvm..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+fi
+
+# Validate yarn is present
+if [ ! $(which yarn) ] &> /dev/null ; then
+    echo "Installing yarn..."
+    /usr/local/bin/brew install yarn
+fi
+
+# Validate slack is present
+if ! brew list | grep 'slack' &> /dev/null ; then
+    echo "Installing slack..."
+    /usr/local/bin/brew install slack
+fi
+
 # Set zsh as the default shell
 chsh -s /bin/zsh
 

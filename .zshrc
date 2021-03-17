@@ -99,3 +99,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Starship
 eval "$(starship init zsh)"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Mac Only, open brower with remote
+alias gitopen="git remote -v | head -n 1 | awk -F \"@\" '{print \$2}' | awk -F \" \" '{print \$1}' | sed 's/:/\//g' | sed 's/.git//g' | awk '{print \"http://\"\$1}' | xargs open"
